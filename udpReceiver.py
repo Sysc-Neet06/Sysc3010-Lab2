@@ -1,5 +1,5 @@
 # Source: https://pymotw.com/2/socket/udp.html
-
+#Team w1
 import socket, sys, time
 
 textport = sys.argv[1]
@@ -17,5 +17,7 @@ while True:
     if not len(buf):
         break
     print ("Received %s bytes from %s %s: " % (len(buf), address, buf ))
+    s.sendto("ACK:{buf}".format(buf=buf).encode('utf-8'), address)
+   
 
 s.shutdown(1)
