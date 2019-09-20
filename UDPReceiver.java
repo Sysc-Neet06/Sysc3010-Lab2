@@ -1,6 +1,6 @@
 
 import java.net.*;
-
+//Team w1
 public class UDPReceiver {
 
 	private final static int PACKETSIZE = 100 ;
@@ -25,9 +25,12 @@ public class UDPReceiver {
 	         {
 		        System.out.println( "Receiving on port " + port ) ;
 		        DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
-	            socket.receive( packet ) ;
-
-	            System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim() ) ;
+	                socket.receive( packet ) ;
+			String Echo = "Ack: " + new String(packet.getData()).trim();
+                        byte data[] = Echo.getBytes();
+			DatagramPacket echoPacket = new DatagramPacket(data, data.length, packet.getAddress(), 1001);
+			socket.send( echoPacket );
+	                System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim() ) ;
 	        }  
 	     }
 	     catch( Exception e )
