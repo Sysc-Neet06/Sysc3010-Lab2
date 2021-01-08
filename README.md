@@ -1,2 +1,2 @@
-# Sysc3010-Lab2
-Lab 2 Files 
+# UDPApplication
+Used to send messeages from either one terminal or one raspberry PI to another
